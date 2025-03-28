@@ -12,13 +12,14 @@ This project is a custom signup form designed to be integrated into a Hubspot la
 - **Responsive Design:** Fully responsive and mobile-friendly.
 - **Enhanced Form Styling:** Improved form aesthetics for better user experience.
 
-## Technologies Used
-
-- HTML
-- CSS
-- Javascript
-- Hubspot Forms API
-- Google Places API
+**Technologies Used**  
+- **Markup & Styling:** HTML, CSS for layout and design  
+- **Functionality & Scripting:** JavaScript for interactive features  
+- **API Integrations:**  
+  - **HubSpot Forms API** – Embeds and syncs data with HubSpot  
+  - **Google Places API** – Enables city autocomplete suggestions  
+  - **Ipify API** – Retrieves user IP for tracking  
+- **Hosting Options:** Compatible with GitHub Pages, Netlify, and Vercel  
 
 ## How It Works
 
