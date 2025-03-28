@@ -2,15 +2,15 @@
 
 ## Overview
 
-This project is a custom signup form designed to be integrated into a Hubspot landing page while also leveraging Google Places API for city based user inputs. The form is styled for a seamless user experience and supports automatic city suggestions, IP tracking, and structured input validation.
+This project is a custom signup form designed to be integrated into a Hubspot landing page. It also leverages the Google Places API for city based user inputs. The form is styled for a seamless user experience and supports automatic city suggestions, IP tracking, and structured input validation.
 
 ## Features
 
-- **Hubspot Form Integration:** Uses HubSpot's embed script to connect the form with a HubSpot landing page.
+- **Hubspot Form Integration:** Uses Hubspot's embed script to connect the form with a Hubspot landing page.
 - **Google Places API Integration:** Autocomplete feature for city selection.
-- **IP Address Retrieval:** Captures user's IP address for enhanced tracking.
+- **IP Address Retrieval:** Captures the user's IP address for enhanced tracking.
 - **Responsive Design:** Fully responsive and mobile-friendly.
-- **Enhanced Form Styling:** Improved form aesthetics for better user experience.
+- **Enhanced Form Styling:** Improved form aesthetics for a better user experience.
 
 **Technologies Used**  
 - **Markup & Styling:** HTML, CSS for layout and design  
