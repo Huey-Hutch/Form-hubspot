@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6Ty5ZHqoSA2jlyqnyi1c7HqLp6G8Ij7I&libraries=places"></script>
+  <style>
+    body {
+      background-color: transparent;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    .form-container {
+      max-width: 550px;
+      margin: 0 auto;
+      text-align: center;
+      border-radius: 0;
+    }
+    h2 {
+      color: #A33323;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 18px;
+      margin: 1px 0;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      color: #888;
+      box-sizing: border-box;
+      border-radius: 0;
+    }
+	.form-container input {
+  border: 1px solid lightgray !important;
+}
+
+    .form-container input::placeholder {
+      color: #999;
+    }
+    .form-container button {
+      width: 33%;
+      padding: 10px;
+      background-color: #c63527;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+      border-radius: 95px;
+    }
+    .form-container button:hover {
+      background-color: #CC0000;
+    }
+    .form-text {
+      font-size: 12px;
+      color: #333;
+      margin-top: 15px;
+      padding-bottom: 0;
+    }
+    input, textarea {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      border: none !important;
+      color: rgba(0, 0, 0, 0.9) !important;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 5px;
+    }
+    input::placeholder {
+      color: rgba(0, 0, 0, 0.5) !important;
+    }
+    #nearest_city {
+      color: rgba(0, 0, 0, 0.9) !important;
+    }
+    .pac-container {
+      background-color: rgba(255, 255, 255, 1) !important;
+    }
+    .pac-item {
+      color: black !important;
+    }
+    .popup {
+      position: relative; 
+      top: 0; 
+      margin-top: 2px; /* Space between button and popup */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      font-size: 9px;
+      border-radius: 100px;
+      display: none;
+      z-index: 1000;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    .popup.error {
+      background-color: #f44336;
+    }
+    .popup.success {
+      background-color: black;
+    }
+    /* Ensure labels are bold and left-aligned */
+    label {
+        font-weight: bold;
+        display: block; /* Ensures labels are on their own line */
+        text-align: left; /* Aligns text to the left */
+    }
+
+    /* Style the description text */
+    .description {
+        font-size: 0.8em; /* Slightly smaller font */
+        line-height: 1.5; /* Improve readability */
+        margin-top: 4px; /* Space between label and description */
+        margin-bottom: 4px; /* Space between description and input field */
+        color: #555; /* Slightly lighter text for better readability */
+        text-align: left; /* Ensures left alignment */
+    }
+
+    /* Ensure the form fields are properly spaced and aligned */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Add spacing between form elements */
+    }
+
+    /* Optional: Add some padding to the form container */
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto; /* Center the form */
+        padding: 15px;
+    }
+
+    /* Ensure labels are bold and left-aligned */
+    label {
+        font-weight: bold;
+        display: block;
+        text-align: left;
+    }
+
+    /* Style the description text */
+    .description {
+        font-size: 0.8em;
+        line-height: 1.5;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #555;
+        text-align: left;
+    }
+	
+
+    /* Ensure the form fields are properly spaced and aligned */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    /* Center the button */
+    button {
+        align-self: center; /* Center the button horizontally */
+        padding: 10px 20px; /* Add padding to the button */
+        background-color: #007bff; /* Blue background color */
+        color: white; /* White text */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Slightly rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 1em; /* Increase font size for readability */
+        margin-top: 18px; /* Space between the form elements and button */
+    }
+
+    /* Optional: Add hover effect for the button */
+    button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+	  #custom_form label {
+        display: block;
+        margin-bottom: 3px; /* Reduced space below labels */
+    }
+    
+    #custom_form input {
+        margin-bottom: 8px; /* Reduced space between input fields */
+    }
+
+    #custom_form .description {
+        margin-bottom: 5px; /* Adjust spacing for the description */
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form id="custom_form">
+    <label for="firstname"><strong><span style="color: red;">*</span> First name</strong></label>
+    <input type="text" id="firstname" name="firstname" required>
+
+    <label for="lastname"><strong><span style="color: red;">*</span> Last name</strong></label>
+    <input type="text" id="lastname" name="lastname" required>
+
+    <label for="email"><strong><span style="color: red;">*</span> Your email address</strong></label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="nearest_city"><strong>Nearest city</strong></label>
+    <p class="description" style="font-size: 0.8em;">
+        We would like to share content and exclusive events relevant to your location. Please enter your nearest city below
+    </p>
+    <input type="text" id="nearest_city" name="nearest_city" required autocomplete="off">
+
+    <input type="hidden" id="guild_address_city" name="guild_address_city" style="text-transform: lowercase;">
+    <input type="hidden" id="guild_address_state" name="guild_address_state" style="text-transform: lowercase;">
+    <input type="hidden" id="guild_address_country" name="guild_address_country" style="text-transform: lowercase;">
+    <input type="hidden" id="ip_address" name="ip_address" style="text-transform: lowercase;">
+
+    <p class="form-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    <button type="submit">Join</button>
+    </form>
+  </div>
+  <div id="popup" class="popup"></div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("ip_address").value = data.ip;
+        })
+        .catch(error => {
+          console.error('Error fetching IP address:', error);
+        });
+
+      var input = document.getElementById('nearest_city');
+      if (input) {
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+          types: ['(cities)'],
+          componentRestrictions: { country: 'GB' }
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            alert("Please select a valid city from the suggestions.");
+            input.value = "";
+            return;
+          }
+
+          let city = "", state = "", country = "";
+          place.address_components.forEach(component => {
+            if (component.types.includes("locality")) {
+              city = component.long_name;
+            }
+            if (component.types.includes("administrative_area_level_1")) {
+              state = component.long_name;
+            }
+            if (component.types.includes("country")) {
+              country = component.long_name;
+            }
+          });
+
+          document.getElementById("guild_address_city").value = city;
+          document.getElementById("guild_address_state").value = state;
+          document.getElementById("guild_address_country").value = country;
+        });
+      }
+
+            // Function to capitalize first letter of each word
+      function capitalizeWords(input) {
+        input.value = input.value
+          .toLowerCase()
+          .replace(/\b\w/g, function(char) {
+            return char.toUpperCase();
+          });
+      }
+
+      // Auto-capitalize input fields
+      function applyCapitalization(selector) {
+        let inputs = document.querySelectorAll(selector);
+        inputs.forEach(input => {
+          input.addEventListener("input", function() {
+            capitalizeWords(this);
+          });
+
+          input.addEventListener("blur", function() {
+            capitalizeWords(this);
+          });
+
+          input.addEventListener("paste", function(event) {
+            setTimeout(() => capitalizeWords(this), 50);
+          });
+        });
+      }
+
+      applyCapitalization("#firstname, #lastname, #nearest_city");
+
+      document.getElementById("custom_form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var formData = {
+          fields: [
+            { name: "firstname", value: document.getElementById("firstname").value },
+            { name: "lastname", value: document.getElementById("lastname").value },
+            { name: "email", value: document.getElementById("email").value },
+            { name: "guild_address_city", value: document.getElementById("guild_address_city").value },
+            { name: "guild_address_state", value: document.getElementById("guild_address_state").value },
+            { name: "guild_address_country", value: document.getElementById("guild_address_country").value },
+            { name: "ip_address", value: document.getElementById("ip_address").value }
+          ]
+        };
+
+        fetch("https://api.hsforms.com/submissions/v3/integration/submit/26694128/92a2367e-d779-46e3-b30c-ddbd301363b0", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          var popup = document.getElementById("popup");
+          if (data.status === 'error') {
+            console.error("HubSpot error:", data.message);
+            popup.classList.add("error");
+            popup.textContent = "Submission failed. Try again.";
+          } else {
+            popup.classList.remove("error");
+            popup.classList.add("success");
+            popup.textContent = "Form submitted successfully!";
+          }
+          popup.style.display = "block";
+          setTimeout(function() {
+            popup.style.display = "none";
+          }, 3000); // Hide after 5 seconds
+
+          document.getElementById("custom_form").reset();
+        })
+        .catch(error => {
+          console.error("Error submitting form:", error);
+          var popup = document.getElementById("popup");
+          popup.classList.add("error");
+          popup.textContent = "Submission failed. Try again.";
+          popup.style.display = "block";
+          setTimeout(function() {
+            popup.style.display = "none";
+          }, 3000); // Hide after 5 seconds
+        });
+      });
+    });
+  </script>
+</body>
+</html>
